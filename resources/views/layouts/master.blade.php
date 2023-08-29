@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@yield('titile')</title>
+    <title>@yield('title')</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset ('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -405,8 +405,10 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset ('assets/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset ('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
     {{-- include Js --}}
     <script src="{{url ('assets/plugins/dataTables/datatables.min.js') }}"></script>
+    
     <!-- Core plugin JavaScript-->
     <script src="{{asset ('assets/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 

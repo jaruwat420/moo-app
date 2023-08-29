@@ -1,205 +1,287 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.72.0">
+    <title>Product example · Bootstrap</title>
 
-    <title>Blog Home - Start Bootstrap Template</title>
+    <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/product/">
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
 
     <!-- Custom styles for this template -->
-    <link href="css/blog-home.css" rel="stylesheet">
+    <!-- <link href="product.css" rel="stylesheet"> -->
+    <style>
+        .container {
+            max-width: 960px;
+        }
 
+        /*
+ * Custom translucent site header
+ */
+
+        .site-header {
+            background-color: rgba(0, 0, 0, .85);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .site-header a {
+            color: #727272;
+            transition: color .15s ease-in-out;
+        }
+
+        .site-header a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+        .product-device {
+            position: absolute;
+            right: 10%;
+            bottom: -30%;
+            width: 300px;
+            height: 540px;
+            background-color: #333;
+            border-radius: 21px;
+            transform: rotate(30deg);
+        }
+
+        .product-device::before {
+            position: absolute;
+            top: 10%;
+            right: 10px;
+            bottom: 10%;
+            left: 10px;
+            content: "";
+            background-color: rgba(255, 255, 255, .1);
+            border-radius: 5px;
+        }
+
+        .product-device-2 {
+            top: -25%;
+            right: auto;
+            bottom: 0;
+            left: 5%;
+            background-color: #e5e5e5;
+        }
+
+
+        /*
+ * Extra utilities
+ */
+
+        .flex-equal>* {
+            flex: 1;
+        }
+
+        @media (min-width: 768px) {
+            .flex-md-equal>* {
+                flex: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="site-header sticky-top py-1">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2" href="#" aria-label="Product">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="d-block mx-auto" role="img" viewBox="0 0 24 24">
+                    <title>Product</title>
+                    <circle cx="12" cy="12" r="10" />
+                    <path
+                        d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+                </svg>
+            </a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
+            <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
         </div>
     </nav>
 
-    <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
-
-                <h1 class="my-4">Page Heading
-                    <small>Secondary Text</small>
-                </h1>
-
-                <!-- Blog Post -->
-                <div class="card mb-4">
-                    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                    <div class="card-body">
-                        <h2 class="card-title">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
-                            aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi
-                            vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Posted on January 1, 2017 by
-                        <a href="#">Start Bootstrap</a>
-                    </div>
-                </div>
-
-                <!-- Blog Post -->
-                <div class="card mb-4">
-                    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                    <div class="card-body">
-                        <h2 class="card-title">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
-                            aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi
-                            vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Posted on January 1, 2017 by
-                        <a href="#">Start Bootstrap</a>
-                    </div>
-                </div>
-
-                <!-- Blog Post -->
-                <div class="card mb-4">
-                    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                    <div class="card-body">
-                        <h2 class="card-title">Post Title</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
-                            aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi
-                            vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                        <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Posted on January 1, 2017 by
-                        <a href="#">Start Bootstrap</a>
-                    </div>
-                </div>
-
-                <!-- Pagination -->
-                <ul class="pagination justify-content-center mb-4">
-                    <li class="page-item">
-                        <a class="page-link" href="#">&larr; Older</a>
-                    </li>
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#">Newer &rarr;</a>
-                    </li>
-                </ul>
-
-            </div>
-
-            <!-- Sidebar Widgets Column -->
-            <div class="col-md-4">
-
-                <!-- Search Widget -->
-                <div class="card my-4">
-                    <h5 class="card-header">Search</h5>
-                    <div class="card-body">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="button">Go!</button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Categories Widget -->
-                <div class="card my-4">
-                    <h5 class="card-header">Categories</h5>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#">Web Design</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">HTML</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Freebies</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li>
-                                        <a href="#">JavaScript</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">CSS</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Tutorials</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Side Widget -->
-                <div class="card my-4">
-                    <h5 class="card-header">Side Widget</h5>
-                    <div class="card-body">
-                        You can put anything you want inside of these side widgets. They are easy to use, and feature
-                        the new Bootstrap 4 card containers!
-                    </div>
-                </div>
-
-            </div>
-
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 font-weight-normal">Punny headline</h1>
+            <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts
+                with this example based on Apple’s marketing pages.</p>
+            <a class="btn btn-outline-secondary" href="#">Coming soon</a>
         </div>
-        <!-- /.row -->
-
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
-    <!-- /.container -->
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">Another headline</h2>
+                <p class="lead">And an even wittier subheading.</p>
+            </div>
+            <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+            </div>
         </div>
-        <!-- /.container -->
-    </footer>
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 p-3">
+                <h2 class="display-5">Another headline</h2>
+                <p class="lead">And an even wittier subheading.</p>
+            </div>
+            <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+            </div>
+        </div>
+    </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 p-3">
+                <h2 class="display-5">Another headline</h2>
+                <p class="lead">And an even wittier subheading.</p>
+            </div>
+            <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+            </div>
+        </div>
+        <div class="bg-primary mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">Another headline</h2>
+                <p class="lead">And an even wittier subheading.</p>
+            </div>
+            <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+            </div>
+        </div>
+    </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 p-3">
+                <h2 class="display-5">Another headline</h2>
+                <p class="lead">And an even wittier subheading.</p>
+            </div>
+            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+            </div>
+        </div>
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">Another headline</h2>
+                <p class="lead">And an even wittier subheading.</p>
+            </div>
+            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+            </div>
+        </div>
+    </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 p-3">
+                <h2 class="display-5">Another headline</h2>
+                <p class="lead">And an even wittier subheading.</p>
+            </div>
+            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+            </div>
+        </div>
+        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">Another headline</h2>
+                <p class="lead">And an even wittier subheading.</p>
+            </div>
+            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+            </div>
+        </div>
+    </div>
+
+    <footer class="container py-5">
+        <div class="row">
+            <div class="col-12 col-md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="d-block mb-2" role="img" viewBox="0 0 24 24">
+                    <title>Product</title>
+                    <circle cx="12" cy="12" r="10" />
+                    <path
+                        d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+                </svg>
+                <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                    <li><a class="link-secondary" href="#">Random feature</a></li>
+                    <li><a class="link-secondary" href="#">Team feature</a></li>
+                    <li><a class="link-secondary" href="#">Stuff for developers</a></li>
+                    <li><a class="link-secondary" href="#">Another one</a></li>
+                    <li><a class="link-secondary" href="#">Last time</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Resource name</a></li>
+                    <li><a class="link-secondary" href="#">Resource</a></li>
+                    <li><a class="link-secondary" href="#">Another resource</a></li>
+                    <li><a class="link-secondary" href="#">Final resource</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Business</a></li>
+                    <li><a class="link-secondary" href="#">Education</a></li>
+                    <li><a class="link-secondary" href="#">Government</a></li>
+                    <li><a class="link-secondary" href="#">Gaming</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Team</a></li>
+                    <li><a class="link-secondary" href="#">Locations</a></li>
+                    <li><a class="link-secondary" href="#">Privacy</a></li>
+                    <li><a class="link-secondary" href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
