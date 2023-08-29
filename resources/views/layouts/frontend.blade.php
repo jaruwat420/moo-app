@@ -1,288 +1,129 @@
 <!doctype html>
 <html lang="en">
-
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.72.0">
-    <title>Product example · Bootstrap</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/product/">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+    {{-- <title>@yield('page-title') - {{ settings('app_name') }}</title> --}}
 
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url('assets/img/logo_caron.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ url('assets/img/logo_caron.png') }}" />
+    <link rel="icon" type="image/png" href="{{ url('assets/img/logo_caron.png') }}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ url('assets/img/logo_caron.png') }}" sizes="16x16" />
+    {{-- <meta name="application-name" content="{{ settings('app_name') }}"/> --}}
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="{{ url('assets/img/logo_caron.png') }}" />
 
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/css/vendor.css') }}">
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/css/image-uploader.min.css') }}">
 
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/plugins/dataTables/datatables.min.css') }}">
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/plugins/select2/css/select2.min.css') }}">
 
 
-    <!-- Custom styles for this template -->
-    <!-- <link href="product.css" rel="stylesheet"> -->
-    <style>
-        .container {
-            max-width: 960px;
-        }
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/plugins/toastr/toastr.min.css') }}">
 
-        /*
- * Custom translucent site header
- */
+    {{-- <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/css/bootstrap-datetimepicker.min.css') }}"> --}}
+    {{-- <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/css/bootstrap-datetimepicker.css') }}"> --}}
+    {{-- <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/css/bootstrap-datetimepicker-standalone.css') }}"> --}}
 
-        .site-header {
-            background-color: rgba(0, 0, 0, .85);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            backdrop-filter: saturate(180%) blur(20px);
-        }
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/plugins/pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}">
 
-        .site-header a {
-            color: #727272;
-            transition: color .15s ease-in-out;
-        }
-
-        .site-header a:hover {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        /*
- * Dummy devices (replace them with your own or something else entirely!)
- */
-
-        .product-device {
-            position: absolute;
-            right: 10%;
-            bottom: -30%;
-            width: 300px;
-            height: 540px;
-            background-color: #333;
-            border-radius: 21px;
-            transform: rotate(30deg);
-        }
-
-        .product-device::before {
-            position: absolute;
-            top: 10%;
-            right: 10px;
-            bottom: 10%;
-            left: 10px;
-            content: "";
-            background-color: rgba(255, 255, 255, .1);
-            border-radius: 5px;
-        }
-
-        .product-device-2 {
-            top: -25%;
-            right: auto;
-            bottom: 0;
-            left: 5%;
-            background-color: #e5e5e5;
-        }
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/plugins/daterangepicker-master/daterangepicker.css') }}">
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/plugins/sweetalert2/dist/sweetalert2.min.css') }}">
 
 
-        /*
- * Extra utilities
- */
 
-        .flex-equal>* {
-            flex: 1;
-        }
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/plugins/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/css/app.css') }}">
 
-        @media (min-width: 768px) {
-            .flex-md-equal>* {
-                flex: 1;
-            }
-        }
-    </style>
+    {{-- plugin --}}
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url('assets/css/base_font.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugin/bootstrap-fileinput-master/css/fileinput.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugin/bootstrap-fileinput-master/css/fileinput-rtl.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugin/bootstrap-fileinput-master/themes/explorer/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugin/Highcharts-Stock/code/css/highcharts.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('plugin/c3/docs/css/c3.min.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+
+    @yield('styles')
 </head>
+<body style="min-height: 100vh;display: flex;flex-direction: column;justify-content: space-between;background-color: #222;">
+    @include('partials.navbar')
 
-<body>
-
-    <nav class="site-header sticky-top py-1">
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2" href="#" aria-label="Product">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    class="d-block mx-auto" role="img" viewBox="0 0 24 24">
-                    <title>Product</title>
-                    <circle cx="12" cy="12" r="10" />
-                    <path
-                        d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
-                </svg>
-            </a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
-        </div>
-    </nav>
-
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 font-weight-normal">Punny headline</h1>
-            <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts
-                with this example based on Apple’s marketing pages.</p>
-            <a class="btn btn-outline-secondary" href="#">Coming soon</a>
-        </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    <div class="container-fluid" style="background-color: #242424;">
+        <main role="main" class="px-md-3 px-0">
+            @yield('content')
+        </main>
     </div>
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-        <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-            <div class="my-3 py-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            </div>
-        </div>
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 p-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            </div>
-        </div>
-    </div>
+    <div class="mt-res"></div>
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 p-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            </div>
-        </div>
-        <div class="bg-primary mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-            <div class="my-3 py-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            </div>
-        </div>
-    </div>
+    @include('partials.footer_new')
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 p-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            </div>
-        </div>
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 py-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            </div>
-        </div>
-    </div>
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 p-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            </div>
-        </div>
-        <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div class="my-3 py-3">
-                <h2 class="display-5">Another headline</h2>
-                <p class="lead">And an even wittier subheading.</p>
-            </div>
-            <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            </div>
-        </div>
-    </div>
+    <script src="{{ url('assets/js/vendor.js') }}"></script>
+    <script src="{{ url('assets/js/as/app.js') }}"></script>
 
-    <footer class="container py-5">
-        <div class="row">
-            <div class="col-12 col-md">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    class="d-block mb-2" role="img" viewBox="0 0 24 24">
-                    <title>Product</title>
-                    <circle cx="12" cy="12" r="10" />
-                    <path
-                        d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
-                </svg>
-                <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Features</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="link-secondary" href="#">Cool stuff</a></li>
-                    <li><a class="link-secondary" href="#">Random feature</a></li>
-                    <li><a class="link-secondary" href="#">Team feature</a></li>
-                    <li><a class="link-secondary" href="#">Stuff for developers</a></li>
-                    <li><a class="link-secondary" href="#">Another one</a></li>
-                    <li><a class="link-secondary" href="#">Last time</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Resources</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="link-secondary" href="#">Resource name</a></li>
-                    <li><a class="link-secondary" href="#">Resource</a></li>
-                    <li><a class="link-secondary" href="#">Another resource</a></li>
-                    <li><a class="link-secondary" href="#">Final resource</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Resources</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="link-secondary" href="#">Business</a></li>
-                    <li><a class="link-secondary" href="#">Education</a></li>
-                    <li><a class="link-secondary" href="#">Government</a></li>
-                    <li><a class="link-secondary" href="#">Gaming</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>About</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="link-secondary" href="#">Team</a></li>
-                    <li><a class="link-secondary" href="#">Locations</a></li>
-                    <li><a class="link-secondary" href="#">Privacy</a></li>
-                    <li><a class="link-secondary" href="#">Terms</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
 
+
+    <!-- Include JS -->
+    <script src="{{ url('assets/plugins/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ url('assets/plugins/select2/js/select2.min.js') }}"></script>
+    <script src="{{ url('assets/plugins/toastr/toastr.min.js') }}"></script>
+    <script src="{{ url('assets/plugins/daterangepicker-master/daterangepicker.js') }}"></script>
+    <script src="{{ url('assets/plugins/dataTables/datatables.min.js') }}"></script>
+    <script src="{{ url('assets/plugins/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+
+
+
+    <script src="{{ url('assets/plugins/html5-qrcode/html5-qrcode.min.js') }}"></script>
+
+    <script src="{{ url('assets/js/vfs_fonts.js') }}"></script>
+    <script src="{{ url('assets/js/image-uploader.min.js') }}"></script>
+
+    <script src="{{ url('assets/plugins/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ url('assets/plugins/bootstrap-select/dist/js/i18n/defaults-th_TH.min.js') }}"></script>
+
+    {{-- <script src="{{ url('assets/js/bootstrap-datetimepicker.min.js') }}"></script> --}}
+    <script src="{{ url('assets/plugins/pc-bootstrap4-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
+    {{-- plugin --}}
+
+    <script src="{{ asset('plugin/bootstrap-fileinput-master/js/plugins/piexif.js') }}"></script>
+    <script src="{{ asset('plugin/bootstrap-fileinput-master/js/plugins/sortable.js') }}"></script>
+    <script src="{{ asset('plugin/bootstrap-fileinput-master/js/fileinput.js') }}"></script>
+    <script src="{{ asset('plugin/bootstrap-fileinput-master/js/locales/fr.js') }}"></script>
+    <script src="{{ asset('plugin/bootstrap-fileinput-master/js/locales/es.js') }}"></script>
+    <script src="{{ asset('plugin/bootstrap-fileinput-master/js/locales/es.js') }}"></script>
+    <script src="{{ asset('plugin/bootstrap-fileinput-master/themes/gly/theme.js') }}"></script>
+    <script src="{{ asset('plugin/bootstrap-fileinput-master/themes/fas/theme.js') }}"></script>
+    <script src="{{ asset('plugin/bootstrap-fileinput-master/themes/explorer-fas/theme.js') }}"></script>
+
+
+    <script src="{{ asset('plugin/Highcharts-Stock/code/highstock.js') }}"></script>
+    <script src="{{ asset('plugin/Highcharts-Stock/code/data.js') }}"></script>
+    <script src="{{ asset('plugin/Highcharts-Stock/code/drilldown.js') }}"></script>
+    <script src="{{ asset('plugin/Highcharts-Stock/code/accessibility.js') }}"></script>
+    <script src="{{ asset('plugin/Highcharts-Stock/code/modules/solid-gauge.js') }}"></script>
+
+    <script src="{{ asset('plugin/c3/docs/js/d3-5.8.2.min.js') }}"></script>
+    <script src="{{ asset('plugin/c3/docs/js/c3.min.js') }}"></script>
+
+    <script src="{{ url('assets/js/main.js') }}"></script>
+
+    <script src="{{ asset('assets/plugins/jquery-validation-1.19.5/jquery.validate.js') }}"></script>
+
+    {{-- CK Editor - CDN--}}
+    {{-- <script src="{{ asset('plugin/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('plugin/ckeditor/jquery-ckeditor.js') }}"></script> --}}
+    <script src="//cdn.ckeditor.com/4.4.7/standard-all/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.4.7/standard-all/adapters/jquery.js"></script>
+
+    @yield('scripts')
 </body>
-
 </html>

@@ -5393,13 +5393,13 @@ button.close {
 }
 
 .bg-primary {
-  background-color: #B31217 !important;
+  background-color: #EC53B0 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #850d11 !important;
+  background-color: #EC53B0 !important;
 }
 
 .bg-secondary {
